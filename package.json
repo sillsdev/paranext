@@ -1,5 +1,5 @@
 {
-  "name": "platform.bible",
+  "name": "platform-bible",
   "version": "0.0.1",
   "description": "Build scripts to create a white-label application on Platform.Bible",
   "keywords": ["electron", "platform", "bible", "translation", "typescript", "ts", "react", "node"],
