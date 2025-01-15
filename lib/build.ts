@@ -222,6 +222,8 @@ console.log('Build steps enabled:', {
     electronBuilderConfig.appId = productInfo.appId;
     electronBuilderConfig.copyright = productInfo.copyright;
     electronBuilderConfig.publish = productInfo.electronBuilderPublish;
+    electronBuilderConfig.protocols.name = productInfo.name;
+    electronBuilderConfig.protocols.schemes = [productInfo.name];
 
     // Add additional extensions folder to electron builder config
     const additionalExtensionsCopyInstructions = {

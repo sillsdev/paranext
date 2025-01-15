@@ -179,21 +179,23 @@ This will also destroy [any changes and untracked files you have made to the rep
 
 ## Publishing
 
-1. Create a branch of the form `release/*`, e.g. `release/v1.2.3`, or `release/v1.2.3-rc1`.
-2. Update the _version_ in your project's `package.json` (and `productInfo.json` if it has a separate version number), e.g.:
+1. On each repository in your `productInfo.json`, create appropriate release branches.
+2. Create a branch of the form `release/*`, e.g. `release/v1.2.3`, or `release/v1.2.3-rc1`.
+3. Update the _version_ in your project's `package.json` (and `productInfo.json` if it has a separate version number), e.g.:
    ```bash
    npm version 1.2.3
    ```
-3. Create a new draft [GitHub **Release**](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository). Ensure the following are included:
+4. Change the branch name for each repository in your `productInfo.json` to the branch name of the release of that repository you want to include in the release for this product.
+5. Create a new draft [GitHub **Release**](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository). Ensure the following are included:
    - a _Tag version_, e.g. `v1.2.3`, choose _Create new tag on publish_.
    - set the **Target** to the release branch.
    - a copy of the change log. Click **Generate release notes** as a starting point.
    - Click **Save draft**.
-4. Update `CHANGELOG.md` with changes in this release from the GitHub draft **Release**.
-5. Commit these changes to your release branch and push the commit to GitHub.
-6. Once the GitHub build **Action** has finished, it will add build artifact files to the draft release. Remove the `.blockmap` files and leave the `.yml` files and the installers and executable, e.g. `.exe` on Windows.
-7. Publish the release on GitHub.
-8. Merge the release branch back into **main** with a merge commit.
+6. Update `CHANGELOG.md` with changes in this release from the GitHub draft **Release**.
+7. Commit these changes to your release branch and push the commit to GitHub.
+8. Once the GitHub build **Action** has finished, it will add build artifact files to the draft release. Remove the `.blockmap` files and leave the `.yml` files and the installers and executable, e.g. `.exe` on Windows.
+9. Publish the release on GitHub.
+10. Merge the release branch back into **main** with a merge commit.
 
 ## Troubleshooting
 
