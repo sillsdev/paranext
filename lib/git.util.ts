@@ -137,7 +137,7 @@ export async function applyRepoPatches(pathFromRepoRoot = '') {
         );
       }
     } catch (e) {
-      console.error(`Error on saving git patch for ${repoInfo.name}: ${e}`);
+      console.error(`Error on applying git patch for ${repoInfo.name}: ${e}`);
       process.exit(1);
     }
   }

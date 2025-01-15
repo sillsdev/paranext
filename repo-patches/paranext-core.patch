@@ -1,22 +1,30 @@
 diff --git a/assets/localization/en.json b/assets/localization/en.json
-index 19468d5a..21c53317 100644
+index 0329409e..ced0c3cd 100644
 --- a/assets/localization/en.json
 +++ b/assets/localization/en.json
-@@ -1,7 +1,7 @@
- {
+@@ -27,7 +27,7 @@
+   "%general_run%": "Run",
+   "%mainMenu_help%": "Help",
+   "%mainMenu_layout%": "Layout",
+-  "%mainMenu_about%": "About Platform.Bible",
++  "%mainMenu_about%": "About {{ productInfo.productName }}",
+   "%mainMenu_downloadInstallResources%": "Download/Install Resources",
+   "%mainMenu_exit%": "Exit",
+   "%mainMenu_openDeveloperDocumentation%": "Open Developer Documentation",
+@@ -37,7 +37,7 @@
+   "%mainMenu_project%": "Project",
+   "%mainMenu_window%": "Window",
+   "%menuItemName_wordList%": "Word List",
 -  "%product_name%": "Platform.Bible",
 +  "%product_name%": "{{ productInfo.productName }}",
-   "%insertNote%": "Insert Note",
--  "%mainMenu_aboutPlatformBible%": "About Platform.Bible",
-+  "%mainMenu_aboutPlatformBible%": "About {{ productInfo.productName }}",
-   "%mainMenu_downloadSlashInstallResources%": "Download/Install Resources",
-   "%mainMenu_downloadSlashUpdateProject%": "Download/Update Project",
-   "%mainMenu_exit%": "Exit",
+   "%project_full_name_missing%": "*Name Missing*",
+   "%project_language_missing%": "*Language Missing*",
+   "%project_name_missing%": "_NoName_",
 diff --git a/c-sharp/Projects/LocalParatextProjects.cs b/c-sharp/Projects/LocalParatextProjects.cs
-index ce3f5cf8..04307c8f 100644
+index ab41adbc..4d299d47 100644
 --- a/c-sharp/Projects/LocalParatextProjects.cs
 +++ b/c-sharp/Projects/LocalParatextProjects.cs
-@@ -38,7 +38,7 @@ internal class LocalParatextProjects
+@@ -49,7 +49,7 @@ internal class LocalParatextProjects
      {
          ProjectRootFolder = Path.Join(
              Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
@@ -37,12 +45,12 @@ index 7b6b97cd..7f43954b 100644
 +    ? path.join(os.homedir(), '/.{{ productInfo.name }}')
      : path.join(__dirname, '../../../dev-appdata');
  });
-
+ 
 diff --git a/src/renderer/index.ejs b/src/renderer/index.ejs
-index 9fc79089..41aba253 100644
+index bba6b888..830b3f57 100644
 --- a/src/renderer/index.ejs
 +++ b/src/renderer/index.ejs
-@@ -107,7 +107,7 @@
+@@ -108,7 +108,7 @@
          form-action 'self';
          navigate-to 'none';"
      />
